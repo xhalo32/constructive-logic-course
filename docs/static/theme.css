@@ -1,0 +1,221 @@
+/* Source: https://github.com/dracula/mkdocs */
+:root {
+    /* Abyss colors */
+    /* https://github.com/gerane/VSCodeThemes/blob/master/gerane.Theme-Abyss/themes/Abyss.tmTheme */
+    --foreground: #6688cc;
+    --function-name: #ddbb88;
+    --comment: #334466;         /* Modified for more contrast */
+    --string: #22aa44;
+    --number: #f280d0;
+    --constant: #f280d0;
+    --keyword: #225588;
+    --argument: #2277ff;
+    --library: #9966b8; /* function constant */
+
+    --black: #000c18;
+    --blackSecondary: #414558;  /*TODO*/
+    --blackTernary: #a7abbe;    /*TODO*/
+    --blackLight: rgba(33, 34, 44, 0.05); /*TODO*/
+    --grey: #414558;
+    --greySecondary: #223355;
+    --greyTernary: #b6b9c9;
+    --greyLight: rgba(65, 69, 88, 0.05);
+    --white: #f8f8f2;
+    --whiteSecondary: #fff;
+    --whiteLight: hsla(60, 30%, 96%, 0.05);
+    --cyan: #80ffea;
+    --cyanSecondary: #ccfff6;
+    --cyanLight: rgba(128, 255, 234, 0.05);
+    --green: #8aff80;
+    --greenSecondary: #d0ffcc;
+    --greenLight: rgba(138, 255, 128, 0.05);
+    --orange: #ffca80;
+    --orangeSecondary: #ffeacc;
+    --orangeLight: rgba(255, 202, 128, 0.05);
+    --pink: #ff80bf;
+    --pinkSecondary: #ffcce6;
+    --pinkLight: rgba(255, 128, 191, 0.05);
+    --purple: #9580ff;
+    --purpleSecondary: #d4ccff;
+    --purpleLight: rgba(149, 128, 255, 0.05);
+    --red: #ff9580;
+    --redSecondary: #ffd4cc;
+    --redLight: rgba(255, 149, 128, 0.05);
+    --yellow: #ffff80;
+    --yellowSecondary: #ffc;
+    --yellowLight: rgba(255, 255, 128, 0.05);
+    --cyan-transparent: rgba(128, 255, 234, 0.1);
+    --green-transparent: rgba(138, 255, 128, 0.1);
+    --orange-transparent: rgba(255, 202, 128, 0.1);
+    --pink-transparent: rgba(255, 128, 191, 0.1);
+    --purple-transparent: rgba(149, 128, 255, 0.1);
+    --red-transparent: rgba(255, 149, 128, 0.1);
+    --yellow-transparent: rgba(255, 255, 128, 0.1);
+    --disabled: #6c7393;
+    --gradientDegree: 135deg;
+    --glowColor: hsla(0, 0%, 100%, 0.25);
+    --cyan-100: rgba(128, 255, 234, 0.1);
+    --green-100: rgba(138, 255, 128, 0.1);
+    --orange-100: rgba(255, 202, 128, 0.1);
+    --pink-100: rgba(255, 128, 191, 0.1);
+    --purple-100: rgba(149, 128, 255, 0.1);
+    --red-100: rgba(255, 149, 128, 0.1);
+    --yellow-100: rgba(255, 255, 128, 0.1);
+    --cyan-200: rgba(128, 255, 234, 0.2);
+    --green-200: rgba(138, 255, 128, 0.2);
+    --orange-200: rgba(255, 202, 128, 0.2);
+    --pink-200: rgba(255, 128, 191, 0.2);
+    --purple-200: rgba(149, 128, 255, 0.2);
+    --red-200: rgba(255, 149, 128, 0.2);
+    --yellow-200: rgba(255, 255, 128, 0.2);
+    --cyan-300: rgba(128, 255, 234, 0.3);
+    --green-300: rgba(138, 255, 128, 0.3);
+    --orange-300: rgba(255, 202, 128, 0.3);
+    --pink-300: rgba(255, 128, 191, 0.3);
+    --purple-300: rgba(149, 128, 255, 0.3);
+    --red-300: rgba(255, 149, 128, 0.3);
+    --yellow-300: rgba(255, 255, 128, 0.3);
+    --cyan-400: rgba(128, 255, 234, 0.4);
+    --green-400: rgba(138, 255, 128, 0.4);
+    --orange-400: rgba(255, 202, 128, 0.4);
+    --pink-400: rgba(255, 128, 191, 0.4);
+    --purple-400: rgba(149, 128, 255, 0.4);
+    --red-400: rgba(255, 149, 128, 0.4);
+    --yellow-400: rgba(255, 255, 128, 0.4);
+    --cyan-500: rgba(128, 255, 234, 0.5);
+    --green-500: rgba(138, 255, 128, 0.5);
+    --orange-500: rgba(255, 202, 128, 0.5);
+    --pink-500: rgba(255, 128, 191, 0.5);
+    --purple-500: rgba(149, 128, 255, 0.5);
+    --red-500: rgba(255, 149, 128, 0.5);
+    --yellow-500: rgba(255, 255, 128, 0.5);
+    --cyan-600: rgba(128, 255, 234, 0.6);
+    --green-600: rgba(138, 255, 128, 0.6);
+    --orange-600: rgba(255, 202, 128, 0.6);
+    --pink-600: rgba(255, 128, 191, 0.6);
+    --purple-600: rgba(149, 128, 255, 0.6);
+    --red-600: rgba(255, 149, 128, 0.6);
+    --yellow-600: rgba(255, 255, 128, 0.6);
+    --cyan-700: rgba(128, 255, 234, 0.7);
+    --green-700: rgba(138, 255, 128, 0.7);
+    --orange-700: rgba(255, 202, 128, 0.7);
+    --pink-700: rgba(255, 128, 191, 0.7);
+    --purple-700: rgba(149, 128, 255, 0.7);
+    --red-700: rgba(255, 149, 128, 0.7);
+    --yellow-700: rgba(255, 255, 128, 0.7);
+    --cyan-800: rgba(128, 255, 234, 0.8);
+    --green-800: rgba(138, 255, 128, 0.8);
+    --orange-800: rgba(255, 202, 128, 0.8);
+    --pink-800: rgba(255, 128, 191, 0.8);
+    --purple-800: rgba(149, 128, 255, 0.8);
+    --red-800: rgba(255, 149, 128, 0.8);
+    --yellow-800: rgba(255, 255, 128, 0.8);
+    --cyan-900: rgba(128, 255, 234, 0.9);
+    --green-900: rgba(138, 255, 128, 0.9);
+    --orange-900: rgba(255, 202, 128, 0.9);
+    --pink-900: rgba(255, 128, 191, 0.9);
+    --purple-900: rgba(149, 128, 255, 0.9);
+    --red-900: rgba(255, 149, 128, 0.9);
+    --yellow-900: rgba(255, 255, 128, 0.9);
+    --accentColor: var(--purple);
+    --purple-cyan: linear-gradient(var(--gradientDegree), var(--purple) 0%, var(--cyan) 100%);
+    --yellow-pink: linear-gradient(var(--gradientDegree), var(--yellow) 0%, var(--pink) 100%);
+    --cyan-green: linear-gradient(var(--gradientDegree), var(--cyan) 0%, var(--green) 100%);
+    --pink-purple: linear-gradient(var(--gradientDegree), var(--pink) 0%, var(--purple) 100%);
+
+    --gradient: linear-gradient(var(--gradientDegree), var(--foreground) 0%, var(--number) 130%);
+}
+
+[data-md-color-scheme="abyss"] {
+    --md-primary-fg-color: var(--purple);
+    --md-primary-bg-color: var(--black);
+    --md-accent-fg-color: var(--foreground);
+    --md-accent-bg-color: var(--black);
+
+    --md-default-fg-color: var(--white);
+    --md-default-fg-color--light: var(--whiteSecondary);
+    --md-default-fg-color--lighter: var(--whiteLight);
+    --md-default-fg-color--lightest: var(--whiteLight);
+    --md-default-bg-color: var(--black);
+    --md-default-bg-color--light: var(--blackSecondary);
+    --md-default-bg-color--lighter: var(--blackLight);
+    --md-default-bg-color--lightest: var(--blackLight);
+    --md-code-fg-color: var(--library);
+    --md-code-bg-color: var(--pinkLight);
+    --md-code-hl-color: #4287ff26;
+    --md-code-hl-number-color: var(--number);
+    --md-code-hl-special-color: red;
+    --md-code-hl-function-color: var(--function-name);
+    --md-code-hl-constant-color: var(--constrant);
+    --md-code-hl-keyword-color: var(--keyword);
+    --md-code-hl-string-color: var(--string);
+    --md-code-hl-name-color: var(--foreground);
+    --md-code-hl-operator-color: var(--library);
+    --md-code-hl-punctuation-color: red;
+    --md-code-hl-comment-color:var(--comment);
+    --md-code-hl-generic-color:var(--md-default-fg-color--light);
+    --md-code-hl-variable-color:var(--md-default-fg-color--light);
+
+    --md-typeset-color:var(--md-default-fg-color);
+    --md-typeset-a-color:var(--md-primary-fg-color);
+    /* --md-typeset-mark-color:#4287ff4d; */
+    --md-typeset-kbd-color:hsla(var(--md-hue),15%,94%,0.12);
+    --md-typeset-kbd-accent-color:hsla(var(--md-hue),15%,94%,0.2);
+    --md-typeset-kbd-border-color:hsla(var(--md-hue),15%,14%,1);
+    --md-typeset-table-color:hsla(var(--md-hue),75%,95%,0.12);
+    --md-typeset-table-color--light:hsla(var(--md-hue),75%,95%,0.035);
+    --md-admonition-fg-color:var(--md-default-fg-color);
+    --md-admonition-bg-color:var(--md-default-bg-color);
+    --md-footer-bg-color:hsla(var(--md-hue),15%,12%,0.87);
+    --md-footer-bg-color--dark:hsla(var(--md-hue),15%,10%,1);
+    --md-shadow-z1:0 0.2rem 0.5rem #0003,0 0 0.05rem #0000001a;
+    --md-shadow-z2:0 0.2rem 0.5rem #0000004d,0 0 0.05rem #00000040;
+    --md-shadow-z3:0 0.2rem 0.5rem #0006,0 0 0.05rem #00000059;
+    color-scheme:dark
+}
+
+[data-md-color-scheme="abyss"] .md-header {
+    /* Header gradient */
+    background: var(--gradient);
+}
+
+[data-md-color-scheme="abyss"] .hljs {
+    color: var(--foreground);
+}
+
+[data-md-color-scheme="abyss"] .hljs-keyword {
+    color: var(--keyword);
+    font-weight: unset;
+}
+
+[data-md-color-scheme="abyss"] .hljs-comment {
+    color: var(--comment);
+}
+
+[data-md-color-scheme="abyss"] .hljs-title {
+    color: var(--function-name);
+}
+
+[data-md-color-scheme="abyss"] .hljs-params {
+}
+
+[data-md-color-scheme="abyss"] .hljs-built_in {
+    font-style: italic;
+    color: var(--library);
+}
+
+[data-md-color-scheme="abyss"] .hljs-string {
+    color: var(--string);
+}
+
+[data-md-color-scheme="abyss"] .hljs-number {
+    color: var(--number);
+}
+
+[data-md-color-scheme="abyss"] .hljs-open-paren, .hljs-close-paren {
+    /* color: var(--yellow); */
+}
+
+[data-md-color-scheme="abyss"] .md-source-file span {
+    color: var(--foreground);
+}

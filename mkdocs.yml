@@ -1,0 +1,57 @@
+site_name: Konstruktiivinen logiikka ja formaali todistaminen
+site_description: Kurssin diat ja lisämateriaali
+site_author: Niklas Halonen
+copyright: "&copy; Otaniemen lukio, 2024"
+
+nav:
+  - johdanto.md
+  - 00-määritelmiä.md
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: abyss
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_javascript:
+  # - static/lean.min.js # see https://github.com/leanprover-community/highlightjs-lean/pull/14
+extra_css:
+  - static/theme.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
+plugins:
+  - search
+  # - git-revision-date-localized: # FIXME Does not work in nix
+  #     fallback_to_build_date: true
+
+markdown_extensions:
+  - mdx_truly_sane_lists:
+      index_start: 0
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+# https://squidfunk.github.io/mkdocs-material/reference/math/#katex-mkdocsyml
+extra_javascript:
+  - static/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+use_directory_urls: false

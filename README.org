@@ -7,7 +7,7 @@ Klassisessa logiikassa väitteiden oletetaan saavan totuusarvoiksi /tosi/ tai /e
 
 Konstruktiivisessa lauselogiikassa konnektiivit →, ∧ ja ∨ ei ole määritetty totuustaulujen avulla, vaan muodostamalla kieli, jossa nämä konnektiivit konstruoidaan ja eliminoidaan käyttäen päättelysääntöjä. Lisäksi predikaattilogiikan kvanttorit ∃, ∀ esiintyvät /tyyppien/ abstraktiotasolla, kun konstruktiivisesta lauselogiikasta siirrytään /tyyppiteoriaan/.
 
-Kurssilla on päätarkoituksena ymmärtää, miten konstruktiivinen logiikka on vahvempi perusta matematiikalle kuin klassinen logiikka, ja miten todistuassistentti (ja ohjelmointikieli) Lean auttaa matemaatikkoja todistamaan väitteitä.
+Kurssilla on päätarkoituksena oppia todistustekniikoita, matematiikan formalisointia, ja miten todistuassistentti (ja ohjelmointikieli) Lean auttaa matemaatikkoja todistamaan väitteitä.
 
 Kurssilla pelataan Lean-pohjaisia pelejä.
 
@@ -19,9 +19,20 @@ Kurssilla ei ole esitietovaatimuksea vaan se lähtee aivan logiikan perusteista,
 Kurssin pääoppimistavoitteet ovat ymmärtää:
 - lause- ja predikaattilogiikan perusteet,
 - miksi matematiikan aksiomaattinen perusta on rajoittunut ja minkälaisia ongelmia sen kanssa on ollut viime vuosisadalla,
-- klassisen ja konstruktiivisen logiikan sekä tyyppiteorian yhtäläisyydet ja erot,
 - joukko-opin ja luonnollisten lukujen teorian perusteet,
 - miten matemaattisia lauseita formalisoidaan Leanilla.
+- klassisen ja konstruktiivisen logiikan sekä tyyppiteorian yhtäläisyydet ja erot,
+
+** Mainos
+Kiinnostaako sinua syventää ymmärrystäsi logiikasta, todistamisesta ja matematiikan perustasta? Haluatko oppia matematiikkaa ohjelmoimalla ja pelaamalla tekstipohjaisia todistuspelejä?
+
+Jos näin, tämä kurssi on sinulle.
+
+Matematiikka on siirtymässä digitaaliselle aikakaudelle, ja tulevaisuuden matemaattisiin taitoihin kuuluuvat myös funktionaalisen ohjelmoinnin taidot. Myös maailman huippumatemaatikot käyttävät Lean-ohjelmointikieltä työkaluna tuktimuksessaan, esim. Terence Tao ja muut tutkiessaan joukko-opin algebraa: https://www.quantamagazine.org/a-team-of-math-proves-a-critical-link-between-addition-and-sets-20231206/
+
+Kurssilla ei pidetä mitään matemaattista "faktaa" itsenstäänselvyytenä, vaan kaikki todistetaan aksioomista lähtien. Kurssilla opit käsittelemään ja todistamaan lauseita lauselogiikan väitteistä, luonnollisista luvuista sekä joukoista. Kurssilla käytetään Lean-ohjelmointikieltä formalisoimaan matemaattisia konsepteja.
+
+Tervetuloa konstruktiivisen logiikan ja matematiikan formalisoinnin lukiokurssille 3. periodiin talvella 2024!
 
 * Oppimistavoitteet
 - Ymmärtää lause- ja predikaattilogiikan perusteet
@@ -45,6 +56,7 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
   - Konjunktio, disjunktio
   - Gentzenin inversioperiaate
   - Negaatio
+  - Miten konstruktiivinen logiikka on vahvempi perusta matematiikalle kuin klassinen logiikka
 - Tietää 1900-luvun vaihteessa joukko-oppia piinaavia paradokseja
 - Tietää tyyppiteorian perusteet
   - Funktio
@@ -109,7 +121,7 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - Esimerkki: huono logiikka: P \r Q \ent Q ja P \r Q \ent \n P \r \n Q
 - Kehäpäätelmä
 
-** Negaatio
+*** Negaatio
 - Epäsuoran todistuksen ja suoran negaatiotodistuksen ero <https://en.wikipedia.org/wiki/Proof_by_contradiction#Relationship_with_other_proof_techniques>
 
 ** Luonnolliset luvut
