@@ -14,8 +14,6 @@ Kurssilla pelataan Lean-pohjaisia pelejä.
 ** Kuvaus
 Konstruktiivisen logiikan ja formaalin todistamisen kurssilla opit miten matematiikkaa formalisoidaan tietokoneavusteisesti.
 
-Kurssilla ei ole esitietovaatimuksea vaan se lähtee aivan logiikan perusteista, matematiikan aksioomista ja todistustekniikoista liikkeelle. Siirrymme logiikan perusteiden jälkeen ohjelmoimaan formaaleja todistuksia Lean-ohjelmointikielellä.
-
 Kurssin pääoppimistavoitteet ovat ymmärtää:
 - lause- ja predikaattilogiikan perusteet,
 - miksi matematiikan aksiomaattinen perusta on rajoittunut ja minkälaisia ongelmia sen kanssa on ollut viime vuosisadalla,
@@ -23,16 +21,6 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - miten matemaattisia lauseita formalisoidaan Leanilla.
 - klassisen ja konstruktiivisen logiikan sekä tyyppiteorian yhtäläisyydet ja erot,
 
-** Mainos
-Kiinnostaako sinua syventää ymmärrystäsi logiikasta, todistamisesta ja matematiikan perustasta? Haluatko oppia matematiikkaa ohjelmoimalla ja pelaamalla tekstipohjaisia todistuspelejä?
-
-Jos näin, tämä kurssi on sinulle.
-
-Matematiikka on siirtymässä digitaaliselle aikakaudelle, ja tulevaisuuden matemaattisiin taitoihin kuuluuvat myös funktionaalisen ohjelmoinnin taidot. Myös maailman huippumatemaatikot käyttävät Lean-ohjelmointikieltä työkaluna tuktimuksessaan, esim. Terence Tao ja muut tutkiessaan joukko-opin algebraa: https://www.quantamagazine.org/a-team-of-math-proves-a-critical-link-between-addition-and-sets-20231206/
-
-Kurssilla ei pidetä mitään matemaattista "faktaa" itsenstäänselvyytenä, vaan kaikki todistetaan aksioomista lähtien. Kurssilla opit käsittelemään ja todistamaan lauseita lauselogiikan väitteistä, luonnollisista luvuista sekä joukoista. Kurssilla käytetään Lean-ohjelmointikieltä formalisoimaan matemaattisia konsepteja.
-
-Tervetuloa konstruktiivisen logiikan ja matematiikan formalisoinnin lukiokurssille 3. periodiin talvella 2024!
 
 * Oppimistavoitteet
 - Ymmärtää lause- ja predikaattilogiikan perusteet
@@ -111,18 +99,6 @@ Tervetuloa konstruktiivisen logiikan ja matematiikan formalisoinnin lukiokurssil
 - Määritelmä: formaali todistus
 
 ** Logiikan perusteet
-- Määritelmät: konnektiivi, logiikka, lauseke, lauselogiikka
-- Määritelmät: aksiooma, postulaatti, väite, lause, totuusarvo
-- Todistus klassisessa logiikassa
-- Todistusjärjestelmät
-- Päättelysäännöt
-- Lauselogiikan kieli
-- Esimerkki: epäsuora todistus <https://en.wikipedia.org/wiki/Proof_by_contradiction>
-- Esimerkki: huono logiikka: P \r Q \ent Q ja P \r Q \ent \n P \r \n Q
-- Kehäpäätelmä
-
-*** Negaatio
-- Epäsuoran todistuksen ja suoran negaatiotodistuksen ero <https://en.wikipedia.org/wiki/Proof_by_contradiction#Relationship_with_other_proof_techniques>
 
 ** Luonnolliset luvut
 - Peanon aksioomat

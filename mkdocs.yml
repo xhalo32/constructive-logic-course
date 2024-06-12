@@ -4,25 +4,32 @@ site_author: Niklas Halonen
 copyright: "&copy; Otaniemen lukio, 2024"
 
 nav:
+  - mainos.md
   - johdanto.md
   - 00-määritelmiä.md
+  - 01-lauselogiikka.md
+  - 02-todistaminen.md
+  - 03-aritmetiikka.md
+  - 04-formalisaatio.md
+  - 05-joukot-tyypit-universumit.md
+  - 06-funktiot.md
 
 theme:
   name: material
   palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+  # Palette toggle for light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
 
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: abyss
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  # Palette toggle for dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: abyss
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
 
 extra_javascript:
   # - static/lean.min.js # see https://github.com/leanprover-community/highlightjs-lean/pull/14
@@ -47,6 +54,10 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: false
 
 # https://squidfunk.github.io/mkdocs-material/reference/math/#katex-mkdocsyml
 extra_javascript:

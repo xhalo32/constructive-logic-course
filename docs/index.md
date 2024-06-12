@@ -1,4 +1,25 @@
-# Johdanto
+# Konstruktiivisen logiikan ja formaalin todistamisen kurssi
+
+Tervetuloa konstruktiivisen logiikan ja formaalin todistamisen kurssille!
+
+## Sisällysluettelo
+
+1. [Määritelmiä](./00-määritelmiä.md)
+  - Joku Lean demo
+    - $\sqrt 2$ irrationaalinen
+  - Kurssin suorittaminen, kurssin sisältö
+1. Lauselogiikka
+  - Konnektiivit
+1. Todistaminen
+2. Aritmetiikka
+  - Induktio
+3. Formalisaatio
+4. Joukot, tyypit ja universumit
+  - Kvanttorit $\forall, \exists$
+5. Funktiot
+  - Curry-Howard isomorfismi
+
+## Johdanto
 
 Tervetuloa konstruktiivisen logiikan ja formaalin todistamisen kurssille!
 
@@ -12,7 +33,15 @@ Kurssilla ei ole esitietovaatimuksea vaan se lähtee aivan logiikan perusteista,
 
 Tältä verkkosivulta löydät kaiken kurssiin littyvän, kuten oppituntien luentomuistiinpanot sekä lisämateriaalia käsitellyistä aiheista.
 
+!!! info
+
+    Tämän kurssin ovat kehittäneet Niklas Halonen ja Alma Nevalainen.
+
 ## Tehtävät
+
+!!! todo
+
+    - Tehtäväalusta
 
 ## Oppimistavoitteet
 

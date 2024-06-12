@@ -123,7 +123,7 @@
     --cyan-green: linear-gradient(var(--gradientDegree), var(--cyan) 0%, var(--green) 100%);
     --pink-purple: linear-gradient(var(--gradientDegree), var(--pink) 0%, var(--purple) 100%);
 
-    --gradient: linear-gradient(var(--gradientDegree), var(--foreground) 0%, var(--number) 130%);
+    --gradient: linear-gradient(var(--gradientDegree), var(--number) 0%, #65d3e9 100%);
 }
 
 [data-md-color-scheme="abyss"] {
@@ -218,4 +218,9 @@
 
 [data-md-color-scheme="abyss"] .md-source-file span {
     color: var(--foreground);
+}
+
+[data-md-color-scheme="abyss"] blockquote {
+    font-style : italic ;
+    font-weight : lighter ;
 }
