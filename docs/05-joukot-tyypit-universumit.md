@@ -1,1 +1,0 @@
-# 5 – Joukot, tyypit ja universumit

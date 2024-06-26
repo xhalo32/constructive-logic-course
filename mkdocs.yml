@@ -9,10 +9,10 @@ nav:
   - 00-määritelmiä.md
   - 01-lauselogiikka.md
   - 02-todistaminen.md
-  - 03-aritmetiikka.md
-  - 04-formalisaatio.md
-  - 05-joukot-tyypit-universumit.md
-  - 06-funktiot.md
+  - 03-formaali-logiikka.md
+  - 04-aritmetiikka.md
+  - 05-funktiot.md
+  - 06-joukot.md
 
 theme:
   name: material

@@ -5,6 +5,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv";
+    lean4.url = "github:leanprover/lean4/d984030c6a683a80313917b6fd3e77abdf497809";
 
     mdx_truly_sane_lists.url = "github:xhalo32/mdx_truly_sane_lists"; # Supports 0-indexing!
   };
@@ -43,6 +44,12 @@
               mdx-truly-sane-lists
             ]
           );
+          autobuild = pkgs.writeShellScriptBin "autobuild" ''
+            ${pkgs.inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -r -m ./Game.lean -m ./Game/ |
+              while read -r directory events filename; do
+                ${pkgs.elan}/bin/lake build
+              done
+          '';
         in
         {
           # Per-system attributes can be defined here. The self' and inputs'
@@ -86,13 +93,27 @@
             dontInstall = true;
           };
 
-          packages.default = self'.packages.serve;
+          packages.default = pkgs.stdenv.mkDerivation {
+            name = "constructive-logic-course";
+            src = ./.;
+            buildPhase = ''
+              cp -r . $out
+              mkdir -p $out/bin
+              echo 'cd ''$(dirname "''$(realpath $0)")/.. && ${mkdocs-env}/bin/.mkdocs-wrapped serve' > $out/bin/constructive-logic-course
+              chmod +x $out/bin/constructive-logic-course
+            '';
+          };
+
+          packages.autobuild = autobuild;
 
           devenv.shells.default = {
             packages = with pkgs; [
-              git
               mkdocs
               mkdocs-env
+              texlive.combined.scheme-medium
+              autobuild
+              # inputs'.lean4.packages.lean
+              elan
             ];
           };
         };

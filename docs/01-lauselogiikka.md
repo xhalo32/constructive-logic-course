@@ -33,6 +33,12 @@
     - "Kaikki X ovat Y"
     - 
 
+## Parametrisoidut lauseet
+
+## Määritelmä: Konjunktio
+
+## Määritelmä: Disjunktio
+
 ## Formaalin logiikan kieli
 
 - Symboliset lauseet
@@ -49,4 +55,5 @@
 
 ## Negaatio
 - Epäsuoran todistuksen ja suoran negaatiotodistuksen ero <https://en.wikipedia.org/wiki/Proof_by_contradiction#Relationship_with_other_proof_techniques>
+- Ei vielä tuoda esiin `-> False`
 

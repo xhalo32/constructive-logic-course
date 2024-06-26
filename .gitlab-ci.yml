@@ -1,0 +1,47 @@
+stages:
+  - build
+  - upload
+  - deploy
+
+# build:
+#   stage: build
+#   image: docker.io/nixos/nix:2.18.0
+#   script:
+#     - nix --experimental-features 'nix-command flakes' build --print-build-logs --print-out-paths
+#     - mkdir -p out
+#     - cp -r result/. out/
+#   cache:
+#     - key: nix-store
+#       paths:
+#         - /nix/store # TODO is this a good idea?
+#   artifacts:
+#     paths:
+#       - ./out
+
+mkdocs:
+  stage: html
+  image: docker.io/nixos/nix:2.18.3
+  script:
+    - nix build .#html
+    - mkdir -p out
+    - cp -r result/. out/
+  cache:
+    - key: nix-store
+      paths:
+        - /nix/store
+  artifacts:
+    paths:
+      - ./out
+      
+pages:
+  stage: deploy
+  needs:
+    - html
+  script:
+    - mkdir public
+    - cp -r out/. public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'

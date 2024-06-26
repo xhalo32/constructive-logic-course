@@ -1,4 +1,6 @@
-# 4 – Formalisaatio
+# 3 – Formaali logiikka
+
+## Formalisaatio
 
 !!! todo
 
@@ -7,8 +9,7 @@
       - Millä muulla tavalla voidaan formalisoida matematiikkaa?
       - Esitellään muita kieliä, esim. Agda ja Coq
       - Mainitaan myös logiikaohjelmointi
-    - Lisää Leania
-    - Matematiikan perustaa
+    - Matematiikan perusta
       - Joukko-oppi, kategoriateoria, tyyppiteoriaa
       - Matematiikan historiaa ja ongelmia
         - Russelin paradoksi, Gödelin epätäydellisyyslause
@@ -22,12 +23,6 @@
       - Jokainen funktionaalinen tietokoneohjelma on konstruktiivinen todistus ja päinvastoin
     - Kuka tarkistaa tarkistajan?
 
-## Formalisointi Leanillä käytännössä
-
 !!! todo
 
-    - Mathlib
-    - Lean blueprint
-    - Oikean maailman esimerkkejä isoista projekteista
-    - Kalle pitämään vierailijaluento
-    - loogle, moogle
+    - Pelissä käsiteltäviä aiheita

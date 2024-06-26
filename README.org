@@ -21,41 +21,6 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - miten matemaattisia lauseita formalisoidaan Leanilla.
 - klassisen ja konstruktiivisen logiikan sekä tyyppiteorian yhtäläisyydet ja erot,
 
-
-* Oppimistavoitteet
-- Ymmärtää lause- ja predikaattilogiikan perusteet
-  - Logiikan kieli, konnektiivit, kvanttorit
-- Tietää mistä kielet rakentuvat ja miten kielioppeja luodaan
-- Osata todistaa lauseita formaalisti
-  - Suora ja epäsuora todistus
-- Ymmärtää todistusjärjestelmien rajoitteet
-  - Gödelin epätäydellisyyslause
-  - Aksioomiin liittyvät rajoitteet
-  - Päättelysääntöjen rajoitteet
-- Tietää Frege:n lauselogiikan
-- Ymmärtää klassisen ja konstruktiivisen logiikan erot
-  - Mitä on totuusarvot
-  - Mitä on todistustermit
-- Tietää konstruktivismin historiaa ja filosofiaa
-  - Kuuluisia konstruktivisteja ja konstruktivsmia vastaan olevia matemaatikkoja
-  - Brouwerin kiintopistelause
-- Ymmärtää intuitionistisen lauselogiikan konstruktion
-  - Totuus ja epätotuus
-  - Konjunktio, disjunktio
-  - Gentzenin inversioperiaate
-  - Negaatio
-  - Miten konstruktiivinen logiikka on vahvempi perusta matematiikalle kuin klassinen logiikka
-- Tietää 1900-luvun vaihteessa joukko-oppia piinaavia paradokseja
-- Tietää tyyppiteorian perusteet
-  - Funktio
-  - Summatyyppi, tulotyyppi
-  - Korkeamman asteen logiikka
-- Ymmärtää luonnollisten lukujen konstruktion ja induktioperiaatteen
-- Osaa tehdä induktiotodistuksia luonnollisilla luvuilla
-- Tietää miten matematiikkaa formalisoidaan tietokoneavusteisesti
-  - Tietää Curry-Howard isomorfismin merkityksen
-  - Osaa käyttää Leania todistamaan lause- ja predikaattilogiikan lauseita
-
 * Muita huomioita
 - MA11 on hyötyä kurssilla
 - Ei pakollisia esitietovaatimuksia
@@ -146,8 +111,47 @@ Motivaatio:
 ** Dependentit tyypit
 ** Modaali logiikka?
 *** Suht yksinkertainen Lean esimerkki <https://github.com/paulaneeley/modal>
+
+** Asioiden formalisointi ei ole absoluuttista. Tulevaisuudessa tyyppiteoriakin saattaa olla liian epäformaalia
+** Formaalissa matematiikassa kaikki sanat koostuvat määritelmistä, jotka ovat yksiselitteisiä
 * Resursseja
 ** <https://en.wikipedia.org/wiki/Philosophy_of_mathematics>
 ** <https://iep.utm.edu/propositional-logic-sentential-logic/#H5>
 ** Joitain tehtäviä TPiListä: <https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#exercises>
 ** Laadukkaat lean luentodiat tyypeistä propositioista ja universumeista <https://math.berkeley.edu/~kmill/talks/2020-06-26-lean-seminar.pdf>
+** <https://en.wikipedia.org/wiki/Brouwer%E2%80%93Hilbert_controversy>
+** Muita kursseja jotka ovat käyttäneet Leania
+<https://leanprover-community.github.io/teaching/courses.html>
+
+
+* Nix käyttöohjeet
+Seuraavilla komennoilla saat mkdocsin pyörimään
+
+#+BEGIN_SRC sh
+nix develop --impure
+nix run .#serve
+#+END_SRC
+
+* Lean4game käyttöohjeetn
+
+#+begin_src sh
+cd lean4game
+npm install
+npm start
+#+end_src
+
+Toisessa terminaalissa aja
+
+#+begin_src shell
+cd ConstructiveLogicCourseGame
+nix run .#autobuild
+#+end_src
+
+Huomaa, että autobuild buildaa vasta kun koodiin tulee muutos, joten lisää esim. rivinvaihto jonnekin
+
+Sitten avaa <http://localhost:3000/#/g/local/ConstructiveLogicCourseGame/>
+
+* Beamer käyttöohje
+Lataa LaTeX workshop <https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop>
+
+Ohjeet miten lisätä ja latoa kuvia: <https://latex-beamer.com/tutorials/beamer-figure/>

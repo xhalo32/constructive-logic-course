@@ -1,0 +1,6 @@
+/lean4game/node_modules
+/ConstructiveLogicCourseGame/.lake
+/Thunkkaus/.lake
+*/.lake
+*/.git
+*.pot
