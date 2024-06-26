@@ -18,8 +18,8 @@ stages:
 #     paths:
 #       - ./out
 
-mkdocs:
-  stage: html
+html:
+  stage: build
   image: docker.io/nixos/nix:2.18.3
   script:
     - nix build .#html
