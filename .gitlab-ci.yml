@@ -22,7 +22,7 @@ html:
   stage: build
   image: docker.io/nixos/nix:2.18.3
   script:
-    - nix build .#html
+    - nix --experimental-features 'nix-command flakes' build .#html --print-build-logs --print-out-paths
     - mkdir -p out
     - cp -r result/. out/
   cache:
