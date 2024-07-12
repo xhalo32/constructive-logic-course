@@ -11,11 +11,13 @@
 
 ## Todistus klassisessa logiikassa
 
+- Epäsuoran todistuksen ja suoran negaatiotodistuksen ero <https://en.wikipedia.org/wiki/Proof_by_contradiction#Relationship_with_other_proof_techniques>
+
 ## Todistusjärjestelmät
 
 !!! todo
 
-    - Aksioomat, säänöt
+    - Aksioomat, säännöt
 
 
 ## Todistusassistentti

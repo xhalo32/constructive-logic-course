@@ -50,6 +50,12 @@
                 ${pkgs.elan}/bin/lake build
               done
           '';
+          FONTCONFIG_FILE = pkgs.makeFontsConf {
+            fontDirectories = with pkgs; [
+              lmodern
+              fira
+            ];
+          };
         in
         {
           # Per-system attributes can be defined here. The self' and inputs'
@@ -107,6 +113,7 @@
           packages.autobuild = autobuild;
 
           devenv.shells.default = {
+            env.FONTCONFIG_FILE = FONTCONFIG_FILE;
             packages = with pkgs; [
               mkdocs
               mkdocs-env
@@ -114,6 +121,7 @@
               autobuild
               # inputs'.lean4.packages.lean
               elan
+              typst
             ];
           };
         };
