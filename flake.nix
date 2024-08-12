@@ -5,13 +5,23 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv";
-    lean4.url = "github:leanprover/lean4/d984030c6a683a80313917b6fd3e77abdf497809";
 
     mdx_truly_sane_lists.url = "github:xhalo32/mdx_truly_sane_lists"; # Supports 0-indexing!
+    typix = {
+      url = "github:xhalo32/typix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    typst-packages = {
+    url = "github:typst/packages";
+    flake = false;
+  };
+    niklashh-typst-packages = {
+    url = "gitlab:niklashh/typst-packages";
+  };
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
+    inputs@{ flake-parts, typix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.devenv.flakeModule ];
       systems = [
@@ -44,23 +54,64 @@
               mdx-truly-sane-lists
             ]
           );
-          autobuild = pkgs.writeShellScriptBin "autobuild" ''
-            ${pkgs.inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -r -m ./Game.lean -m ./Game/ |
-              while read -r directory events filename; do
-                ${pkgs.elan}/bin/lake build
-              done
-          '';
           FONTCONFIG_FILE = pkgs.makeFontsConf {
             fontDirectories = with pkgs; [
               lmodern
               fira
             ];
           };
+          typixLib = typix.lib.${system};
+
+          src = ./.;
+          commonArgs = typstSource: {
+            inherit typstSource;
+
+            fontPaths = [
+              # Add paths to fonts here
+              "${pkgs.fira}/share/fonts/opentype"
+            ];
+
+            XDG_CACHE_HOME = typstPackagesCache;
+          };
+
+    typstPackagesSrc = pkgs.symlinkJoin {
+    name = "typst-packages-src";
+    paths = [
+      "${inputs.typst-packages}/packages"
+      inputs.niklashh-typst-packages.packages.${system}.default
+    ];
+  };
+
+        typstPackagesCache = pkgs.stdenv.mkDerivation {
+          name = "typst-packages-cache";
+          src = typstPackagesSrc;
+          dontBuild = true;
+          installPhase = ''
+            mkdir -p "$out/typst/packages"
+            cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
+          '';
+        };
+
+          build-drv-palaveri-2024-07-12 = typixLib.buildTypstProject (commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; });
+          build-script-palaveri-2024-07-12 = typixLib.buildTypstProjectLocal (commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; });
+          watch-script-palaveri-2024-07-12 = typixLib.watchTypstProject (commonArgs "slides/palaveri-2024-07-12.typ");
+
+          build-drv-muistiinpanot-2024-07-12 = typixLib.buildTypstProject (commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; });
+          build-script-muistiinpanot-2024-07-12 = typixLib.buildTypstProjectLocal (commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; });
+          watch-script-muistiinpanot-2024-07-12 = typixLib.watchTypstProject (commonArgs "notes/muistiinpanot-2024-07-12.typ");
         in
         {
           # Per-system attributes can be defined here. The self' and inputs'
           # module parameters provide easy access to attributes of the same
           # system.
+# checks = {
+#             inherit build-drv build-script watch-script;
+#           };
+
+          packages = {
+            inherit build-drv-palaveri-2024-07-12 build-script-palaveri-2024-07-12 watch-script-palaveri-2024-07-12;
+            inherit build-drv-muistiinpanot-2024-07-12 build-script-muistiinpanot-2024-07-12 watch-script-muistiinpanot-2024-07-12;
+          };
 
           packages.serve = pkgs.writeShellApplication {
             name = "serve";
@@ -110,16 +161,12 @@
             '';
           };
 
-          packages.autobuild = autobuild;
-
           devenv.shells.default = {
             env.FONTCONFIG_FILE = FONTCONFIG_FILE;
+            # env.XDG_CACHE_HOME = typstPackagesCache; # NOTE breaks everything
             packages = with pkgs; [
               mkdocs
               mkdocs-env
-              texlive.combined.scheme-medium
-              autobuild
-              # inputs'.lean4.packages.lean
               elan
               typst
             ];
