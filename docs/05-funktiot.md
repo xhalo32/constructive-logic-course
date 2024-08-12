@@ -5,6 +5,7 @@
     - Tyypit
     - Korkeamman asteen funktiot
     - Bijektio, surjektio, injektio
+    - Funktionaalisuus ja totaalisuus
     - Tyyppisignatuurit
     - Rekursiivisesti määritetyt funktiot
     - Lukujonot
