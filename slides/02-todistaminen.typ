@@ -90,6 +90,8 @@ $ (()/A ()/B)/((A and B)/(B -> (A and B))/(A -> (B -> (A and B)))) $
 
 == Aksioomat
 
+MAA11 s.85
+
 == Päättelysäännöt
 
 == Todistus luonnollista päättelyä käyttäen
@@ -127,3 +129,28 @@ def identity : A → A := by
 
 ])
 )
+
+== Lause, eli _teoreema_
+
+#todo[
+  Esimerkkinä parilliset luvut (esitetään formaalisti 4 kappaleessa)
+]
+
+== Apulause, eli _lemma_
+
+
+== Kontrapositio
+
+MAA11 s.87
+
+== Epäsuora todistus
+
+- $A -> B$ on ekvivalentti $not B -> not A$ klassisessa logiikassa
+  - Huom: ei päde konstruktiivisessa logiikassa (kaikilla A ja B)
+
+== Epäsuora todistus esimerkki
+
+#todo[
+
+]
+

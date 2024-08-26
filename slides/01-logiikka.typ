@@ -126,3 +126,16 @@ def countable_primes : Countable primes := by
   rfl
 
 ```
+
+== "Judgement"
+
+- Filosofinen väite
+
+== Implikaatio
+
+== Ekvivalenssi
+
+== "Hypothetical Judgement"
+
+- Matematiikan vahvuus on siinä, että väitteiden totuus ei riipu puhujasta tai kuulijasta, vaan oletuksista
+  - $arrow$ Tarvitaan judgement jossa esitetään myös oletukset
