@@ -17,13 +17,6 @@
 #set raw(syntaxes: "Lean4.sublime-syntax", theme: "Catppuccin Latte.tmTheme")
 #set text(font: "Fira Sans", weight: "light", size: 20pt)
 
-#show raw: it => block(
-  fill: rgb("#eff1f5"),
-  inset: 8pt,
-  radius: 12pt,
-  text(fill: rgb("#4c4f69"), it)
-)
-
 #let s = slidetheme.register(aspect-ratio: "16-9")
 #let s = (s.methods.info)(
   self: s,
@@ -72,12 +65,68 @@ $a+b > b$, mikä saadaan suoraan induktio-oletuksista.
 
 == Todistusassistentit
 
-- Tietokoneohjelma, joka ymmärtää formaalia matematiikkaa ja pystyy tarkistamaan sen korrektiutta.
+- Tietokoneohjelma, joka ymmärtävät formaalia matematiikkaa ja pystyvät tarkistamaan sen korrektiutta.
 - Seuraavat ovat yleisiä todistusassistentteja: *Lean*, Coq, Isabelle, Agda
 
 == Lean
 
 - Funktionaalinen, dependentisti tyypitetty ohjelmointikieli ja todistusassistentti.
 
+- *Mathlib* -kirjasto
 
 #image("nng-demo.png")
+
+== Ensiaskeleet
+
+#image("lean1.png")
+
+== Ensiaskeleet
+
+#image("lean2.png")
+
+== Terminologiaa
+
+- Maali: ```lean4 P```
+- Konteksti
+- Hypoteesi: ```lean4 todo_list```
+- Alkio ja tyyppi: ```lean4 P : Prop```, ```lean4 todo_list : P```
+- Taktiikka: ```lean4 exact```
+- Lause
+
+== Konjunktio
+
+$ A and B $
+
+- On sellainen tyyppi, joka sisältää todistuksen kahdesta tyypistä
+- Sen alkiot voidaan muodostaa antamalla todistus molemmista tyypeistä
+- Sen alkiot voidaan purkaa molempien tyypien todistuksiksi erikseen
+
+== Konjunktio
+
+Leanissä voidaan muodostaa konjunktio käyttämällä ```lean4 And.intro``` lausetta:
+
+```lean4
+example (a : A) (b : B) : A ∧ B := by
+  exact And.intro a b
+```
+
+Tai rikkomalla maali kahteen tapaukseen `A` ja `B`:
+
+```lean4
+example (a : A) (b : B) : A ∧ B := by
+  constructor
+  -- Ensiksi pitää todistaa A
+  · exact a
+  -- Sitten pitää todistaa B
+  · exact b
+```
+
+== Tehtäviä
+
+=== lyli.fi/logiikka
+- Suomeksi
+
+=== adam.math.hhu.de
+- In english
+- Natural number game 
+- A lean intro to logic
