@@ -52,6 +52,7 @@
   - Formalisointi on yleensä jäljessä tutkimusmatematiikkaa
   - Logiikkaohjelmointi
   - Todistusassistentti
+  - Harjoitellaan sanallisen lauseen kirjoittamista formaalisti loogisella notaatiolla
   - Lean ja tyyppiteoria formalisoinnissa
   - Mathlib
   - Lean esimerkkejä (formalisoidaan jotain yhdessä)
@@ -62,6 +63,20 @@
 - Tapa esittää 
 
 == Formalisoinnin rajat
+
+
+== Formaali logiikka
+
+#slide(composer: (1fr, auto))[
+  - Miten eroaa epäformaalista logiikasta?
+    - Mitä tarkoittaa formaali kieli?
+  - Nollannen asteen logiikkaa kutsutaan nimellä lauselogiikka
+][
+  $ (p quad p -> q) / q $
+]
+
+
+
 
 == Esimerkki
 

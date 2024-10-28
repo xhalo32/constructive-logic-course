@@ -62,16 +62,42 @@ TODO tunnin oppimistavoitteet
 
 TODO tarkemmin mitä logiikka on
 
-== Formaali logiikka
+== Väite eli "propositio"
 
-#slide(composer: (1fr, auto))[
-  - Miten eroaa epäformaalista logiikasta?
-    - Mitä tarkoittaa formaali kieli?
-  - Nollannen asteen logiikkaa kutsutaan nimellä lauselogiikka
-][
-  $ (p quad p -> q) / q $
-]
+- Tosi/epätosi propositio
+- Väitteitä, jotka ovat totta
+  - $1 = 1$
+  - $x = x$, jossa $x$ on luku
+  - $sqrt(2)$ on irrationaalinen
+- Väitteitä, jotka ovat epätotta
+  - $1 = 2$
+  - $x = x + 1$, jossa $x$ on luku
+  - $sqrt(4)$ on irrationaalinen
 
+= Voiko väite olla sellainen, jonka totuusarvoa ei tiedetä?
+
+- "On olemassa pariton _täydellinen_ luku"
+  #image("./perfect-number.png")
+- $P = N P$
+- #link("https://en.wikipedia.org/wiki/Collatz_conjecture")[Collatzin konjektuuri] on tosi
+- Ohjelmakoodi pysähtyy (pysähtymisongelma)
+  ```python
+  def g():
+    if halts(g):
+        loop_forever()
+  ```
+
+// https://en.wikipedia.org/wiki/Category:Unsolved_problems_in_number_theory
+
+- Viel
+
+TODO mikä on propositio
+
+TODO ei mennä notaatioon ennen kuin ymmärretääñ sanallisesti
+
+== Logiikan notaatio
+
+TODO -> and or forall exists
 
 == Lauselogiikka
 
@@ -87,6 +113,8 @@ TODO tarkemmin mitä logiikka on
   $ p -> (q or r -> (r -> not p)) $
 ]
 
+
+== Predikaattilogiikka
 
 == Lean
 
@@ -139,3 +167,5 @@ def countable_primes : Countable primes := by
 
 - Matematiikan vahvuus on siinä, että väitteiden totuus ei riipu puhujasta tai kuulijasta, vaan oletuksista
   - $arrow$ Tarvitaan judgement jossa esitetään myös oletukset
+
+- Voidaan esittää logiikan sisäisesti universaalilla kvantifikaatiolla
