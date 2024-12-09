@@ -12,12 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     typst-packages = {
-    url = "github:typst/packages";
-    flake = false;
-  };
+      url = "github:typst/packages";
+      flake = false;
+    };
     niklashh-typst-packages = {
-    url = "gitlab:niklashh/typst-packages";
-  };
+      url = "gitlab:niklashh/typst-packages";
+    };
   };
 
   outputs =
@@ -74,43 +74,78 @@
             XDG_CACHE_HOME = typstPackagesCache;
           };
 
-    typstPackagesSrc = pkgs.symlinkJoin {
-    name = "typst-packages-src";
-    paths = [
-      "${inputs.typst-packages}/packages"
-      inputs.niklashh-typst-packages.packages.${system}.default
-    ];
-  };
+          typstPackagesSrc = pkgs.symlinkJoin {
+            name = "typst-packages-src";
+            paths = [
+              "${inputs.typst-packages}/packages"
+              inputs.niklashh-typst-packages.packages.${system}.default
+            ];
+          };
 
-        typstPackagesCache = pkgs.stdenv.mkDerivation {
-          name = "typst-packages-cache";
-          src = typstPackagesSrc;
-          dontBuild = true;
-          installPhase = ''
-            mkdir -p "$out/typst/packages"
-            cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
-          '';
-        };
+          typstPackagesCache = pkgs.stdenv.mkDerivation {
+            name = "typst-packages-cache";
+            src = typstPackagesSrc;
+            dontBuild = true;
+            installPhase = ''
+              mkdir -p "$out/typst/packages"
+              cp -LR --reflink=auto --no-preserve=mode -t "$out/typst/packages" "$src"/*
+            '';
+          };
 
-          build-drv-palaveri-2024-07-12 = typixLib.buildTypstProject (commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; });
-          build-script-palaveri-2024-07-12 = typixLib.buildTypstProjectLocal (commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; });
-          watch-script-palaveri-2024-07-12 = typixLib.watchTypstProject (commonArgs "slides/palaveri-2024-07-12.typ");
+          build-drv-palaveri-2024-07-12 = typixLib.buildTypstProject (
+            commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; }
+          );
+          build-script-palaveri-2024-07-12 = typixLib.buildTypstProjectLocal (
+            commonArgs "slides/palaveri-2024-07-12.typ" // { inherit src; }
+          );
+          watch-script-palaveri-2024-07-12 = typixLib.watchTypstProject (
+            commonArgs "slides/palaveri-2024-07-12.typ"
+          );
 
-          build-drv-muistiinpanot-2024-07-12 = typixLib.buildTypstProject (commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; });
-          build-script-muistiinpanot-2024-07-12 = typixLib.buildTypstProjectLocal (commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; });
-          watch-script-muistiinpanot-2024-07-12 = typixLib.watchTypstProject (commonArgs "notes/muistiinpanot-2024-07-12.typ");
+          build-drv-muistiinpanot-2024-07-12 = typixLib.buildTypstProject (
+            commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; }
+          );
+          build-script-muistiinpanot-2024-07-12 = typixLib.buildTypstProjectLocal (
+            commonArgs "notes/muistiinpanot-2024-07-12.typ" // { inherit src; }
+          );
+          watch-script-muistiinpanot-2024-07-12 = typixLib.watchTypstProject (
+            commonArgs "notes/muistiinpanot-2024-07-12.typ"
+          );
+
+          build-drv-muistiinpanot-2024-08-30 = typixLib.buildTypstProject (
+            commonArgs "notes/muistiinpanot-2024-08-30.typ" // { inherit src; }
+          );
+          build-script-muistiinpanot-2024-08-30 = typixLib.buildTypstProjectLocal (
+            commonArgs "notes/muistiinpanot-2024-08-30.typ" // { inherit src; }
+          );
+          watch-script-muistiinpanot-2024-08-30 = typixLib.watchTypstProject (
+            commonArgs "notes/muistiinpanot-2024-08-30.typ"
+          );
         in
         {
           # Per-system attributes can be defined here. The self' and inputs'
           # module parameters provide easy access to attributes of the same
           # system.
-# checks = {
-#             inherit build-drv build-script watch-script;
-#           };
+          # checks = {
+          #             inherit build-drv build-script watch-script;
+          #           };
 
           packages = {
-            inherit build-drv-palaveri-2024-07-12 build-script-palaveri-2024-07-12 watch-script-palaveri-2024-07-12;
-            inherit build-drv-muistiinpanot-2024-07-12 build-script-muistiinpanot-2024-07-12 watch-script-muistiinpanot-2024-07-12;
+            inherit
+              build-drv-palaveri-2024-07-12
+              build-script-palaveri-2024-07-12
+              watch-script-palaveri-2024-07-12
+              ;
+            inherit
+              build-drv-muistiinpanot-2024-07-12
+              build-script-muistiinpanot-2024-07-12
+              watch-script-muistiinpanot-2024-07-12
+              ;
+            inherit
+              build-drv-muistiinpanot-2024-08-30
+              build-script-muistiinpanot-2024-08-30
+              watch-script-muistiinpanot-2024-08-30
+              ;
           };
 
           packages.serve = pkgs.writeShellApplication {

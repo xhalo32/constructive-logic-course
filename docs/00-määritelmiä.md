@@ -88,7 +88,7 @@ lemma pow_even_imp_even (n : Int) : Even (n ^ 2) → Even n := by
 lemma two_mul_right_inj (m n : Int) : 2 * n = 2 * m → n = m := by
   norm_num
 
-theorem sqrt2_is_irRat : (p : Nat) → (pnez : p ≠ 0) → (q : Int) → (cop : q.natAbs.Coprime p) → (Rat.mk' q p pnez cop) ^ 2 ≠ 2 := by
+theorem sqrt2_irrat : (p : Nat) → (pnez : p ≠ 0) → (q : Int) → (cop : q.natAbs.Coprime p) → (Rat.mk' q p pnez cop) ^ 2 ≠ 2 := by
   intro p pnez q cop
   by_contra h
   simp [pow_def] at h

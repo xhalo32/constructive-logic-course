@@ -1,6 +1,6 @@
-#+title: Konstruktiivinen logiikka ja formaali todistaminen – lukiokurssi
+= title: Konstruktiivinen logiikka ja formaali todistaminen – lukiokurssi
 
-* Johdanto
+= Johdanto
 Konstruktiivinen logiikka on logiikan haara, jossa todistukset matemaattisista väitteistä sisältävät rakennetta ja ovat algoritmillisesti varmistettavissa.
 
 Klassisessa logiikassa väitteiden oletetaan saavan totuusarvoiksi /tosi/ tai /epätösi/ riippumatta siitä löytyykö väitteelle tai sen negaatiolle todistusta. Konstruktiivinen logiikka ei tee tätä oletusta, vaan väitteet voidaan osoittaa todeksi ainoastaan konstruoimalla todistus väitteestä.
@@ -11,7 +11,7 @@ Kurssilla on päätarkoituksena oppia todistustekniikoita, matematiikan formalis
 
 Kurssilla pelataan Lean-pohjaisia pelejä.
 
-** Kuvaus
+== Kuvaus
 Konstruktiivisen logiikan ja formaalin todistamisen kurssilla opit miten matematiikkaa formalisoidaan tietokoneavusteisesti.
 
 Kurssin pääoppimistavoitteet ovat ymmärtää:
@@ -21,13 +21,13 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - miten matemaattisia lauseita formalisoidaan Leanilla.
 - klassisen ja konstruktiivisen logiikan sekä tyyppiteorian yhtäläisyydet ja erot,
 
-* Muita huomioita
+= Muita huomioita
 - MA11 on hyötyä kurssilla
 - Ei pakollisia esitietovaatimuksia
 
-* Sisältö
-** Matematiikan filosofiaa
-*** Mitä on logiikka
+= Sisältö
+== Matematiikan filosofiaa
+=== Mitä on logiikka
 - Filosofinen näkökulma
   - Totuus ja tieto
   - Logiikka on perusta kaikelle tiedolle
@@ -40,7 +40,7 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - Informaali ja formaali logiikka
   - Informaalissa logiikassa kiinnitetään huomiota semantiikkaan, formaalissa ei?
 
-*** Mitä on matematiikka
+=== Mitä on matematiikka
 - Mikä on todistus?
   - Suora todistus
   - Epäsuora todistus
@@ -52,7 +52,7 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - Looginen virhe
 - Voiko matematiikkaan luottaa?
 
-*** Matematiikan perusta
+=== Matematiikan perusta
 - Perustakriisi <https://en.wikipedia.org/wiki/Foundations_of_mathematics#Foundational_crisis>
 - Konstruktivismi
   - Lainaus: "its laws are absolutely certain and indisputable"
@@ -63,24 +63,24 @@ Kurssin pääoppimistavoitteet ovat ymmärtää:
 - Todistusassistentti
 - Määritelmä: formaali todistus
 
-** Logiikan perusteet
+== Logiikan perusteet
 
-** Luonnolliset luvut
+== Luonnolliset luvut
 - Peanon aksioomat
 - Induktio luonnollisille luvuille
 
-** Predikaattilogiikka
+== Predikaattilogiikka
 
-** Joukko-oppi
+== Joukko-oppi
 - Russelin paradoksi: <https://lean-lang.org/functional_programming_in_lean/functor-applicative-monad/universes.html>
 
-** Tyyppiteoria
+== Tyyppiteoria
 
-** Lean
+== Lean
 - Esimerkki: kehäpäätelmä
 
-* Teemat
-** Funktio ja alkio
+= Teemat
+== Funktio ja alkio
 Motivaatio:
 - Normaalisti ajatellaan sellaisesta filosofisesta näkökulmasta että funktiot eroavat jotenkin alkioista
 - Avainidea: kaikki ovat funktioita, myös alkiot
@@ -100,31 +100,57 @@ Motivaatio:
   - Funktion identiteetin määrittää yksittäin ulospäin näkyvä "käytös"
   - Proseduurit voivat olla eri vaikka ne saavuttaisivat saman lopputuloksen eli ovat sama funktio
 
-* TODO
-** Proof systems and what consists a proof, what is formalism?
-** Natural numbers starting from 0 or 1
-** Entailment relation
-** Mitä tarkoittaa "by definition"
-** Gödelin täydellisyys ja epätäydellisyyslause
+= TODO
+- Kurssin alkupään opetusmateriaali
+  - Logiikan perusteet
+  - Kynä-paperi tehtäviä
+  - Implikaation visualisointi
+  - Todistaminen kynällä ja paperilla
+    - Totuustauluja
+    - `A -> B -> A`
+  - Opitaan lukemaan ja tulkitsemaan loogisia väitteitä, jotka koostuvat symboleista
+  - Välitesti 1
+- Konstuktiivisen logiikan aksioomat
+  - `|- <> : True`
+  - `A, A -> B |- B`
+- Predikaatit
+  - Predikaatti `IsZero : Nat -> Prop`: `IsZero n` tarkoittaa että n = 0
+- Predikaattilogiikka
+  - Avoin lause
+  - Kvanttorit
+  - Äärellinen tyyppi
+  - Kvanttoreita totuustaululla äärellisistä tyypeistä, esim `{A, B, C}`
+  - Miksi totuustaulu ei enää riitä todistamaan predikaattia esim. kaikista luvuista
+  - Predikaatti `Even : Nat -> Prop`: `Even n` tarkoittaa että luku n on parillinen
+  - Kaksipaikkainen relaatio
+  - Välitesti 2
+
+
+= Vanhoja TODOja
+== Proof systems and what consists a proof, what is formalism?
+== Natural numbers starting from 0 or 1
+== Entailment relation
+== Mitä tarkoittaa "by definition"
+== Gödelin täydellisyys ja epätäydellisyyslause
 - Gödelin numerointi
 - Metamatematiikka
-** Dependentit tyypit
-** Modaali logiikka?
-*** Suht yksinkertainen Lean esimerkki <https://github.com/paulaneeley/modal>
+== Dependentit tyypit
+== Modaali logiikka?
+=== Suht yksinkertainen Lean esimerkki <https://github.com/paulaneeley/modal>
 
-** Asioiden formalisointi ei ole absoluuttista. Tulevaisuudessa tyyppiteoriakin saattaa olla liian epäformaalia
-** Formaalissa matematiikassa kaikki sanat koostuvat määritelmistä, jotka ovat yksiselitteisiä
-* Resursseja
-** <https://en.wikipedia.org/wiki/Philosophy_of_mathematics>
-** <https://iep.utm.edu/propositional-logic-sentential-logic/#H5>
-** Joitain tehtäviä TPiListä: <https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#exercises>
-** Laadukkaat lean luentodiat tyypeistä propositioista ja universumeista <https://math.berkeley.edu/~kmill/talks/2020-06-26-lean-seminar.pdf>
-** <https://en.wikipedia.org/wiki/Brouwer%E2%80%93Hilbert_controversy>
-** Muita kursseja jotka ovat käyttäneet Leania
+== Asioiden formalisointi ei ole absoluuttista. Tulevaisuudessa tyyppiteoriakin saattaa olla liian epäformaalia
+== Formaalissa matematiikassa kaikki sanat koostuvat määritelmistä, jotka ovat yksiselitteisiä
+= Resursseja
+== <https://en.wikipedia.org/wiki/Philosophy_of_mathematics>
+== <https://iep.utm.edu/propositional-logic-sentential-logic/#H5>
+== Joitain tehtäviä TPiListä: <https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#exercises>
+== Laadukkaat lean luentodiat tyypeistä propositioista ja universumeista <https://math.berkeley.edu/~kmill/talks/2020-06-26-lean-seminar.pdf>
+== <https://en.wikipedia.org/wiki/Brouwer%E2%80%93Hilbert_controversy>
+== Muita kursseja jotka ovat käyttäneet Leania
 <https://leanprover-community.github.io/teaching/courses.html>
 
 
-* Nix käyttöohjeet
+= Nix käyttöohjeet
 Seuraavilla komennoilla saat mkdocsin pyörimään
 
 #+BEGIN_SRC sh
@@ -132,7 +158,7 @@ nix develop --impure
 nix run .#serve
 #+END_SRC
 
-* Lean4game käyttöohjeetn
+= Lean4game käyttöohjeetn
 
 #+begin_src sh
 cd lean4game
@@ -151,7 +177,7 @@ Huomaa, että autobuild buildaa vasta kun koodiin tulee muutos, joten lisää es
 
 Sitten avaa <http://localhost:3000/#/g/local/ConstructiveLogicCourseGame/>
 
-* Beamer käyttöohje
+= Beamer käyttöohje
 Lataa LaTeX workshop <https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop>
 
 Ohjeet miten lisätä ja latoa kuvia: <https://latex-beamer.com/tutorials/beamer-figure/>

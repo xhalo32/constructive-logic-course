@@ -1,5 +1,12 @@
 #import "@preview/touying:0.4.2": *
+#import "@preview/quick-maths:0.1.0": shorthands
 #import "slidetheme.typ"
+
+#show: shorthands.with(
+  ($+-$, $plus.minus$),
+  ($|-$, math.tack),
+  ($<=$, math.arrow.l.double) // Replaces '≤'
+)
 
 #let palette = (
   rgb("#7287fd"), // lavender

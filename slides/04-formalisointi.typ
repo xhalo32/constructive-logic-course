@@ -95,3 +95,38 @@ open Mathlib.Real
 
 
 ```
+
+
+
+== $A -> A$, mutta Leanillä
+
+#grid(columns:(1fr, 1fr), text(size:15pt, [
+Kirjoitetaan edellisen dian todistus Leaniä käyttäen:
+
+\
+
+```lean4
+def identity : A → A := by
+  intro a
+  exact a
+```
+]), text(size:15pt, [
+  `def` aloittaa määritelmän (definition)
+
+  `by` aloittaa taktiikkatodistuksen
+
+  `A` tyyppi
+
+  `→` implikaatio, jostakin seuraa jotakin
+
+  `intro` siirretään hypoteesi *maalista* oletukseksi *kontekstiin*
+
+  `exact` suljetaan maali tarjoamalla *todistustermi*
+
+])
+)
+
+== TODO
+
+- kongruenssi
+- shakkilautapulma (täsmällinen päättely)
