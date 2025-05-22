@@ -45,12 +45,12 @@
 #let (slide, empty-slide, title-slide, new-section-slide, focus-slide) = utils.slides(s)
 #show: slides
 
-== TODO
+// == TODO
 
-#todo[
-  - todistus siitä, että $A -> A$
-  - implikaation sulutus, mitä eroa on $A -> (A -> B) -> B$ ja $A -> A -> B -> B$ välillä?
-]
+// #todo[
+//   - todistus siitä, että $A -> A$
+//   - implikaation sulutus, mitä eroa on $A -> (A -> B) -> B$ ja $A -> A -> B -> B$ välillä?
+// ]
 
 == Tällä tunnilla käydään...
 
@@ -62,7 +62,7 @@
   - Todistus luonnollisella päättelyllä
 - Klassisen logiikan ominaispiirteet
   - Ristiriitatodistus
-- Kvanttorit ja todistaminen predikaattilogiikassa
+// - Kvanttorit ja todistaminen predikaattilogiikassa
 
 == Todistukset totuustauluja käyttäen
 
@@ -77,24 +77,65 @@
 5. $(A => B) <=> not A or B$
 ]
 
+== Konteksti
+
+- $Gamma tack A$ sanoo, että oletuksista $Gamma$ seuraa *johtopäätös* $A$.
+  - $tack$ merkin vasemmalla puolella on niin kutsuttu *konteksti*, eli paikalliset oletukset.
+- Konteksti koostuu pilkulla erotetuista oletuksista, esim $A, B, not C$.
+  - Oletukset ovat voimassa $tack$ merkin oikealla puolella.
+- Konteksti on loogisesti ekvivalentti kaikkien oletuksien konjunktiosta.
+- Muita esimerkkejä kontekstista:
+  - Oletukset $A, B, C$ ovat ekvivalentti $A and B and C$ kanssa.
+- Konteksti muuttuu todistuksen eri vaiheissa.
+
 == Logiikan päättelysäännöt
 
 #let hyp = $script("hyp")$
 #let impIntro = $script(scripts(->)_"intro")$
 #let impElim = $script(scripts(->)_"elim")$
 #let andIntro = $script(scripts(and)_"intro")$
-#let notElim = $script(scripts(not)_"elim")$
+#let botElim = $script(scripts(bot)_"elim")$
 
 - Koostuvat _tuonti_- ja _eliminointisäännöistä_.
   - Tuonti on verrattavissa rakenteen muodostumiseen
   - Eliminointi rakenteen purkamiseen
 - Päättelysääntö vastaa yhtä jakoviivaa.
-- Lause $Gamma tack A$ sanoo, että oletuksista $Gamma$ seuraa *johtopäätös* $A$.
 - Päättelysäännöillä muovataan oletuksia ja johtopäätöstä.
 - Jotkin päättelysäännöt ovat molempisuuntaisia, mutta joillakin päättely menee vain yhteen suuntaan.
-- Päättelysäännöt yleensä kirjoitetaan lyhennettynä ilman kontekstia tai $tack$ merkkiä
+- Päättelysäännöt yleensä kirjoitetaan lyhennettynä ilman kontekstia tai $tack$ merkkiä.
 
-#v(2em)
+== Todistus päättelysääntöjä käyttäen
+
+- Väite kirjotetaan viivan alapuolelle, valitaan sopiva päättelysääntö, jonka määrämänä viivan yläpuolelle muodostuu _maaleja_ ($0-n$ kpl).
+- Todistuksen välivaiheet ilmenevät päättelyviivoina, ja todistuksen "tila", eli oletukset ja väite muuttuvat välivaiheiden välillä.
+- Todistus on *valmis* kun jokaisen viivan yläpuolella on tyhjää.
+- "hyp"-päättelysääntö sanoo, että jos väite löytyy oletuksista, niin todistus on valmis.
+
+#grid(columns: (1fr,)*3, align: center + horizon)[
+#proof-tree(prem-min-spacing: 1em,
+  rule($tack A -> A$)
+)
+][
+#proof-tree(prem-min-spacing: 1em,
+  rule(
+    name: impIntro,
+    $tack A -> A$
+  )
+)
+][
+#proof-tree(prem-min-spacing: 1em,
+  rule(
+    name: impIntro,
+    $tack A -> A$,
+    rule(
+      name: hyp,
+      $A tack A$
+    )
+  )
+)
+]
+
+== Logiikan päättelysäännöt (vain osa)
 
 #grid(columns: (1fr,)*3, align: center + horizon)[
 #proof-tree(prem-min-spacing: 1em,
@@ -120,35 +161,6 @@
     $Gamma tack A$,
     $Gamma tack A -> B$,
   ),
-)
-]
-
-== Todistus päättelysääntöjä käyttäen
-
-- Väite kirjotetaan viivan alapuolelle, valitaan sopiva päättelysääntö, jonka määrämänä viivan yläpuolelle muodostuu _maaleja_.
-- Todistuksen välivaiheet ilmenevät päättelyviivoina, ja todistuksen "tila", eli oletukset ja väite muuttuvat välivaiheiden välillä
-
-#grid(columns: (1fr,)*3, align: center + horizon)[
-#proof-tree(prem-min-spacing: 1em,
-  rule($A -> A$)
-)
-][
-#proof-tree(prem-min-spacing: 1em,
-  rule(
-    name: impIntro,
-    $A -> A$
-  )
-)
-][
-#proof-tree(prem-min-spacing: 1em,
-  rule(
-    name: impIntro,
-    $A -> A$,
-    rule(
-      name: hyp,
-      $A tack A$
-    )
-  )
 )
 ]
 
@@ -190,6 +202,7 @@
 - Logiikka on _konsistentti_, jos epätotuutta ei pysty johtamaan suoraan aksioomista ja päättelysäännöistä.
 - Kaikki järkevät logiikat ovat konsistentteja.
 - Kuitenkin, vaikka oletuksissa on ristiriita, niin se ei tee logiikasta epäkonsistenttia.
+  - Jos $Gamma tack bot$, niin sanotaan, että oletuksissa $Gamma$ on ristiriita (tai ristiriitaisi oletuksia).
 
 // == Todistus luonnollista päättelyä käyttäen
 
@@ -220,14 +233,20 @@
 
 == Lause, eli _teoreema_
 
-// - Lause on 
-
-#todo[
-  Esimerkkinä parilliset luvut (esitetään formaalisti 4 kappaleessa)
-]
+- Lause on todistettu matemaattinen väite.
+- Usein lauseet ovat "matemaattisesti merkittäviä", mutta tämä on vain konventio
+- Lauseet ovat myös usein kohtuullisen yleisessä muodossa, esim $a + b = b + a$ on yleisempi kuin $a + 0 = 0 + a$, koska jälkimmäinen seuraa ensimmäisestä.
+- Esimerkkejä lauseista:
+  - #link("")[Banachin#footnote[Stefan Banach, 1892-1945]-Tarskin#footnote[Alfred Tarski, 1901-1983] lause]
+  - #link("https://en.wikipedia.org/wiki/Brouwer_fixed-point_theorem")[Brouwerin#footnote[Luitzen Egbertus Jan Brouwer, 1881-1966] kiintopistelause]
+  - #link("https://en.wikipedia.org/wiki/Cantor%27s_theorem")[Cantorin#footnote[Georg Cantor, 1845-1918] lause]
 
 == Apulause, eli _lemma_
 
+- Todistaessa on usein helpompaa rikkoa todistuksen välivaiheet omiksi todistuksiksi.
+- Esimerkkejä
+  - #link("https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem")[Fermat#footnote[Pierre de Fermat, \~1607-1665]:n viimeinen lause] $a^(n + 2) != b^(n + 2) + c^(n + 2)$ kaikille $a, b, c, n > 0$, kannattaa todistaa #link("https://en.wikipedia.org/wiki/Modularity_theorem")[Taniyama#footnote[Yutaka Taniyama, 1927-1958]-Shimura#footnote[Goro Shimura, 1930-2019] lause] ensiksi
+  - Todistaessa $1/(a + 1) > 1/(a + 2)$ kaikilla $a > 0$, kannattaa tehdä välitodistus siitä että $a + 1 != 0$.
 
 == Aksiooma
 
@@ -237,10 +256,9 @@
   - Peano aksioomat
   - Joukko-opin aksioomat
   - Tyyppiteorian aksioomat
+- Luonnolliset luvut voidaan muodostaa tyyppiteoriassa seuraavilla säännöillä: 
 
-MAA11 s.85
-
-#grid(columns: (1fr,)*3, align: center + horizon)[
+#grid(columns: (1fr, 1fr, 2fr), align: center + horizon)[
 #proof-tree(prem-min-spacing: 1em,
   rule(
     name: $script(0_"intro")$,
@@ -251,8 +269,8 @@ MAA11 s.85
 #proof-tree(prem-min-spacing: 1em,
   rule(
     name: $script(S_"intro")$,
-    $tack n : NN$,
     $tack S(n) : NN$,
+    $tack n : NN$,
   )
 )
 ][
@@ -262,27 +280,52 @@ MAA11 s.85
     $n : NN tack "mot"(n)$,
     $tack "mot" : NN -> "Prop"$,
     $tack "mot"(0)$,
-    $n : NN, i h : "mot"(n) tack "mot"(S(n))$,
+    $n : NN, "ih" : "mot"(n) tack "mot"(S(n))$,
   )
 )
 ]
 
+== Negaatio ja $bot$
 
-== Kontrapositio
+- Konstruktiivisessa logiikassa ja tyyppiteoriassa väitteen negaatio usein määritetään implikaationa $not A :eq.triple A -> bot$.
+- $bot$:illa *ei ole* tuontisääntöä.
+- $bot$:in *eliminointisääntö*:
+  - Jos kontekstista $Gamma$ voidaan johtaa $bot$, niin voidaan johtaa mikä tahansa väite $A$.
 
-MAA11 s.87
+#v(2em)
 
-== Epäsuora todistus
+#align(center, proof-tree(prem-min-spacing: 1em,
+  rule(
+    name: botElim,
+    $Gamma tack A$,
+    $Gamma tack bot$
+  ),
+))
 
-- $A -> B$ on ekvivalentti $not B -> not A$ klassisessa logiikassa
-  - Huom: ei päde konstruktiivisessa logiikassa (kaikilla A ja B)
+== Epäsuora, eli ristiriitatodistus
 
-== Epäsuora todistus esimerkki
+- *Kontraposition laki* on klassisessa logiikassa oleva lause, joka sanoo, että $A -> B$ jos ja vain jos $not B -> not A$.
+  - Jos-suunta$<-$ ei päde konstruktiivisessa logiikassa yleisesti.
+- *Ristiriitatodistuksessa* todistetaan $A -> B$ osoittamalla kontrapositiivinen väite $not B tack not A$, joka on sama kuin $not B, A tack bot$.
+  - "Olettaen että $B$ ei päde, mutta $A$ pätee, niin seuraa ristiriita."
+- Toisin kuin epäsuora todistus, negaatiotodistus on suora todistus
 
+== Kolmannen poissulkevan laki
+
+- Klassisen logiikan aksiooma.
+- Sanoo, että kaikki väitteet ovat joko tosia, tai epätosia.
+- Ei päde konstruktiivisessa logiikassa yleisesti.
+
+#v(2em)
+
+#align(center, proof-tree(prem-min-spacing: 1em,
+  rule(
+    name: $script("KPL")$,
+    $Gamma tack A or not A$,
+  ),
+))
 
 == Esimerkki ristiriidasta todistuksessa
-
-- Negaation *eliminointisääntö*
 
 #align(center, block[
   // #proof-tree(prem-min-spacing: 1em,
@@ -304,7 +347,7 @@ MAA11 s.87
     ),
     rule(
       name: impElim,
-      $A, (A -> not A) tack not A$,
+      $A, (A -> not A) tack A -> bot quad "(huom." eq.triple not A$,
       rule(
         name: hyp,
         $A, (A -> not A) tack (A -> not A)$,
@@ -316,10 +359,6 @@ MAA11 s.87
     ),
   ),
 )])
-
-== Universaalikvanttori
-
-== Eksistenssikvanttori
 
 == Lähteitä
 

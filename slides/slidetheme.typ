@@ -211,7 +211,7 @@
 	}
 	if equation.func() == math.equation {
 		// this is a hack to mark the equation as colored so that we don't colorize it again
-		if equation.body.has("children") and equation.body.children.at(0) == [#sym.space.hair] {
+		if equation.body.has("children") and equation.body.children.len() > 0 and equation.body.children.at(0) == [#sym.space.hair] {
 			equation
 		} else {
 			math.equation([#sym.space.hair] + colorize-math(palette, equation.body, i:i), block: equation.block)
